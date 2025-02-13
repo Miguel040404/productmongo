@@ -18,8 +18,8 @@ export async function POST(request) {
     const { database } = await connectToDatabase();
     const collection = database.collection(process.env.MONGODB_COLLECTION)
 
-    const { nombre, edad } = await request.json() // Read body request
-    const results = await collection.insertOne({ nombre, edad });
+    const { nombre, precio, fecha_inventario, imagen } = await request.json() // Read body request
+    const results = await collection.insertOne({ nombre, precio, fecha_inventario, imagen });
 
     return Response.json(results)
 }
